@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Várion — Edição Popular</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-dark: #d2c1a3;
+            --paper-light: #e8dbc5;
+            --ink: #1a1a1a;
+            --ink-fade: #444;
+            --accent: #5a3a22;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background:#1e1e1e;
+            font-family:'Crimson Text', serif;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            padding:40px 20px;
+            color: var(--ink);
+        }
+
+        /* PAINEL DE CONTROLE */
+        .control-panel {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--paper-dark);
+        }
+
+        .btn-main {
+            background: var(--paper-dark);
+            color: var(--ink);
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Cinzel';
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-print-pdf { background: #27ae60; color: white; margin-left: 10px; }
+
+        /* CONTAINER DO JORNAL */
+        .newspaper-container {
+            background:var(--paper-light);
+            background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            max-width:1100px;
+            width:100%;
+            padding:50px;
+            box-shadow:0 10px 50px rgba(0,0,0,0.8);
+            border: 1px solid var(--paper-dark);
+        }
+
+        /* HEADER */
+        .masthead {
+            text-align:center;
+            border-bottom: 6px double var(--ink);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .masthead-top {
+            display:flex;
+            justify-content:space-between;
+            font-family: 'Special Elite', monospace;
+            font-size:0.85rem;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 5px;
+        }
+
+        .masthead h1 {
+            font-family:'UnifrakturMaguntia', serif;
+            font-size:5.5rem;
+            margin: 10px 0;
+            line-height: 0.9;
+        }
+
+        /* GRIDS */
+        .news-grid {
+            display:grid;
+            grid-template-columns: 260px 1fr 260px;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .column { display:flex; flex-direction:column; gap:25px; }
+        .main-col { border-left:1px solid rgba(0,0,0,0.2); border-right:1px solid rgba(0,0,0,0.2); padding:0 25px; }
+
+        h2 { font-family:'Cinzel', serif; font-size: 1.3rem; margin-bottom: 8px; border-bottom: 1px solid var(--ink); }
+        h3 { font-family: 'Special Elite', monospace; font-size: 0.75rem; color: #666; margin-bottom: 5px; text-transform: uppercase; }
+        .headline-lg { font-size: 2.8rem; text-align: center; border: none; line-height: 1; margin-bottom: 15px; }
+        
+        p { text-align:justify; line-height: 1.4; font-size: 1.1rem; margin-bottom: 10px; }
+        .dropcap { float:left; font-size:4rem; font-family:'UnifrakturMaguntia', serif; line-height: 0.7; padding: 5px 8px 0 0; }
+        .news-img { width:100%; filter: grayscale(1) contrast(1.4) sepia(0.2); border:1px solid var(--ink); margin: 15px 0; }
+
+        /* SEÇÕES EXTRAS */
+        .extra-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-top: 4px double var(--ink);
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        .mail-box { background: rgba(0,0,0,0.04); border: 1px solid var(--paper-dark); padding: 15px; margin-bottom: 20px; }
+        .editorial-reply { margin-top: 10px; padding-left: 15px; border-left: 3px solid var(--accent); font-style: italic; font-size: 0.95rem; }
+        .editorial-reply::before { content: "RESPOSTA DO EDITOR:"; display: block; font-family: 'Cinzel'; font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; }
+
+        /* CONFIGURAÇÃO DE IMPRESSÃO */
+        @media print {
+            @page { size: A4; margin: 10mm; }
+            body { background: white !important; padding: 0 !important; }
+            .control-panel { display: none !important; }
+            .newspaper-container {
+                box-shadow: none !important;
+                border: none !important;
+                background: var(--paper-light) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                width: 100% !important;
+                padding: 10mm !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="control-panel">
+        <span style="color: white; font-family: 'Cinzel';">Diário de Várion — Arquivo de Edição</span>
+        <div>
+            <button class="btn-main" onclick="window.open('https://drive.google.com','_blank')">📂 Edições Passadas</button>
+            <button class="btn-main btn-print-pdf" onclick="window.print()">📄 Gerar PDF do Jornal</button>
+        </div>
+    </div>
+
+    <div class="newspaper-container">
+        <header class="masthead">
+            <div class="masthead-top">
+                <span>Porto Varion, Distrito Central</span>
+                <span>Edição LXXXVI — Verão de 1044</span>
+                <span>Preço: 2 Cobres</span>
+            </div>
+            <h1>Diário de Várion</h1>
+            <p style="text-align:center; font-family:'Cinzel'; letter-spacing:4px; font-weight:bold;">"A Voz do Comércio, a Vigília da Ordem"</p>
+        </header>
+
+        <div class="news-grid">
+            
+            <div class="column">
+                <h3>Gazeta Policial</h3>
+                <article>
+                    <h2>Ladrões de Carga Presos no Pátio Sul</h2>
+                    <p>A Guarda Civil desarticulou uma gangue que subtraía fardos de seda durante o descarregamento das caravanas. Três suspeitos foram levados à custódia das docas.</p>
+                </article>
+                <article>
+                    <h2>Confusão na Taberna do Rato</h2>
+                    <p>Uma briga generalizada por causa de um jogo de dados viciado resultou em seis canecos quebrados e duas prisões por desordem pública.</p>
+                </article>
+                <div style="border: 2px solid var(--ink); padding: 10px; font-family: 'Special Elite'; font-size: 0.8rem; background: rgba(0,0,0,0.02);">
+                    <b>RECOMPENSA:</b> 5 pratas por informações sobre a carroça furtada de Mestre Alaric. Toldo azul, marca de carvalho.
+                </div>
+            </div>
+
+<div class="main-col">
+    <article>
+        <h3>Política & Poder</h3>
+        <h2 class="headline-lg">CONSELHO MUNICIPAL VOTA NOVA TAXA OPERÁRIA</h2>
+        
+        <img src="jornal1.jpg" class="news-img" alt="Reunião do Conselho de Várion">
+
+        <p><span class="dropcap">O</span> clima esquentou na Câmara dos Vereadores nesta manhã...</p>
+    </article>
+</div>
+            <div class="column">
+                <h3>Economia Portuária</h3>
+                <article>
+                    <h2>Preço do Couro Estabiliza</h2>
+                    <p>A chegada da caravana de Aurethia trouxe excedente de couro curtido, reduzindo o preço unitário nas selarias centrais. Bom momento para reparos.</p>
+                </article>
+                <article>
+                    <h3>Vida na Cidade</h3>
+                    <h2>Sons Estranhos nos Esgotos?</h2>
+                    <p>Moradores do Bairro Industrial reclamam de ruídos metálicos vindos das bueiras à noite. A prefeitura alega ser apenas vapor acumulado nas tubulações antigas.</p>
+                </article>
+                <article>
+                    <h3>Clima</h3>
+                    <h2>Calor Recorde nas Docas</h2>
+                    <p>O mormaço de verão deve continuar. Médicos recomendam evitar o trabalho pesado sob o sol do meio-dia.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="extra-section">
+            
+            <div class="editorial-col">
+                <h2 style="margin-bottom: 20px;">Correio do Leitor</h2>
+                
+                <div class="mail-box">
+                    <p><b>De: Um Ferreiro Honesto</b></p>
+                    <p>"Editor, por que o carvão da Liga Mercante está vindo com tanta pedra? Estamos perdendo horas de forja para limpar o material!"</p>
+                    <div class="editorial-reply">
+                        Apuramos que o carvão está sendo misturado nos depósitos para aumentar o volume. O inspetor de pesos e medidas parece estar recebendo 'incentivos' para não ver o problema.
+                    </div>
+                </div>
+
+                <div class="mail-box">
+                    <p><b>De: Dona Gertrudes</b></p>
+                    <p>"As carroças de entrega estão correndo demais na Rua dos Pomares. Quase atropelaram meu neto ontem!"</p>
+                    <div class="editorial-reply">
+                        A pressa dos entregadores é reflexo das multas aplicadas pela Liga por atrasos. O lucro vale mais que a segurança de nossas crianças, ao que parece.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cultural-col">
+                <h2 style="margin-bottom: 20px;">Guia de Várion</h2>
+                
+                <article>
+                    <h3>Teatro & Lazer</h3>
+                    <p><b>Peça: "A Filha do Comodoro"</b></p>
+                    <p>Uma comédia de costumes que ironiza a elite local. Estreia sábado no Teatro das Máscaras. 1 moeda de prata.</p>
+                </article>
+
+                <article>
+                    <h3>Tabernas</h3>
+                    <p><b>O Rato Cego</b></p>
+                    <p>Hoje: Noite do Ensopado de Peixe. Cerveja preta em promoção para quem trouxer sua própria caneca de madeira.</p>
+                </article>
+
+                <article>
+                    <h3>Serviços</h3>
+                    <p><b>Alfaiataria Vael</b></p>
+                    <p>Ajustes rápidos em túnicas e capas para a temporada de festas. Localizada atrás da Catedral de Lux.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
