@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário de Várion — Edição Popular</title>
+    <title>Diário de Várion — Edição LXXXVII</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,6 +12,7 @@
             --ink: #1a1a1a;
             --ink-fade: #444;
             --accent: #5a3a22;
+            --red: #8b1a1a;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -86,6 +87,20 @@
             line-height: 0.9;
         }
 
+        /* ALERTA / MANCHETE DE URGÊNCIA */
+        .breaking-banner {
+            background: var(--red);
+            color: #f5e6c8;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            padding: 5px 10px;
+            border: 2px solid #5a0f0f;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
         /* GRIDS */
         .news-grid {
             display:grid;
@@ -99,11 +114,34 @@
 
         h2 { font-family:'Cinzel', serif; font-size: 1.3rem; margin-bottom: 8px; border-bottom: 1px solid var(--ink); }
         h3 { font-family: 'Special Elite', monospace; font-size: 0.75rem; color: #666; margin-bottom: 5px; text-transform: uppercase; }
-        .headline-lg { font-size: 2.8rem; text-align: center; border: none; line-height: 1; margin-bottom: 15px; }
+        .headline-lg { font-size: 2.4rem; text-align: center; border: none; line-height: 1.05; margin-bottom: 15px; }
+        .headline-red { color: var(--red); }
         
         p { text-align:justify; line-height: 1.4; font-size: 1.1rem; margin-bottom: 10px; }
         .dropcap { float:left; font-size:4rem; font-family:'UnifrakturMaguntia', serif; line-height: 0.7; padding: 5px 8px 0 0; }
         .news-img { width:100%; filter: grayscale(1) contrast(1.4) sepia(0.2); border:1px solid var(--ink); margin: 15px 0; }
+
+        .opinion-bar {
+            border: 2px solid var(--ink);
+            padding: 10px 14px;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.82rem;
+            background: rgba(90,58,34,0.06);
+            margin-top: 5px;
+        }
+        .opinion-bar b { font-family: 'Cinzel'; display: block; font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 4px; }
+
+        /* MISSING CHILD BOX */
+        .missing-box {
+            border: 3px solid var(--red);
+            padding: 14px;
+            text-align: center;
+            background: rgba(139,26,26,0.04);
+        }
+        .missing-box h2 { color: var(--red); border-color: var(--red); }
+        .missing-box p { font-size: 0.95rem; }
+        .missing-box .missing-name { font-family: 'Cinzel'; font-size: 1.2rem; display: block; margin: 8px 0 4px; }
+        .missing-box .reward { font-family: 'Special Elite'; font-size: 0.85rem; border-top: 1px solid var(--red); padding-top: 8px; margin-top: 8px; }
 
         /* SEÇÕES EXTRAS */
         .extra-section {
@@ -118,6 +156,8 @@
         .mail-box { background: rgba(0,0,0,0.04); border: 1px solid var(--paper-dark); padding: 15px; margin-bottom: 20px; }
         .editorial-reply { margin-top: 10px; padding-left: 15px; border-left: 3px solid var(--accent); font-style: italic; font-size: 0.95rem; }
         .editorial-reply::before { content: "RESPOSTA DO EDITOR:"; display: block; font-family: 'Cinzel'; font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; }
+
+        .divider { border: none; border-top: 1px solid rgba(0,0,0,0.2); margin: 15px 0; }
 
         /* CONFIGURAÇÃO DE IMPRESSÃO */
         @media print {
@@ -150,79 +190,123 @@
         <header class="masthead">
             <div class="masthead-top">
                 <span>Porto Varion, Distrito Central</span>
-                <span>Edição LXXXVI — Verão de 1044</span>
+                <span>Edição LXXXVII — Verão de 1044</span>
                 <span>Preço: 2 Cobres</span>
             </div>
             <h1>Diário de Várion</h1>
             <p style="text-align:center; font-family:'Cinzel'; letter-spacing:4px; font-weight:bold;">"A Voz do Comércio, a Vigília da Ordem"</p>
         </header>
 
+        <div class="breaking-banner">⚑ EDIÇÃO ESPECIAL — ESCÂNDALO NO CAIS &amp; CRISE DE AUTORIDADE NO SÍNODO ⚑</div>
+
         <div class="news-grid">
             
+            <!-- COLUNA ESQUERDA -->
             <div class="column">
-                <h3>Gazeta Policial</h3>
-                <article>
-                    <h2>Ladrões de Carga Presos no Pátio Sul</h2>
-                    <p>A Guarda Civil desarticulou uma gangue que subtraía fardos de seda durante o descarregamento das caravanas. Três suspeitos foram levados à custódia das docas.</p>
-                </article>
-                <article>
-                    <h2>Confusão na Taberna do Rato</h2>
-                    <p>Uma briga generalizada por causa de um jogo de dados viciado resultou em seis canecos quebrados e duas prisões por desordem pública.</p>
-                </article>
-                <div style="border: 2px solid var(--ink); padding: 10px; font-family: 'Special Elite'; font-size: 0.8rem; background: rgba(0,0,0,0.02);">
-                    <b>RECOMPENSA:</b> 5 pratas por informações sobre a carroça furtada de Mestre Alaric. Toldo azul, marca de carvalho.
+
+                <div class="missing-box">
+                    <h2>CRIANÇA DESAPARECIDA</h2>
+                    <p>A família de</p>
+                    <span class="missing-name">Tomé Brael, 9 anos</span>
+                    <p>clama por qualquer informação. O menino foi visto pela última vez na manhã de quinta-feira, nas proximidades do Mercado das Ervas, vestindo uma túnica marrom com remendos vermelhos no cotovelo. Não retornou ao lar no Beco do Fundidor.</p>
+                    <div class="reward">⚑ RECOMPENSA: 3 pratas por informações. Falar com a mãe, Mira Brael, na Hospedaria do Salgueiro. ⚑</div>
                 </div>
-            </div>
 
-<div class="main-col">
-    <article>
-        <h3>Política & Poder</h3>
-        <h2 class="headline-lg">CONSELHO MUNICIPAL VOTA NOVA TAXA OPERÁRIA</h2>
-        
-        <img src="jornal1.jpg" class="news-img" alt="Reunião do Conselho de Várion">
-
-        <p><span class="dropcap">O</span> clima esquentou na Câmara dos Vereadores nesta manhã. O Comodoro da Liga Mercante propôs um novo tributo sobre o uso dos guindastes públicos, alegando necessidade de manutenção urgente.</p>
-                    <p>Representantes dos sindicatos de estivadores protestaram nas escadarias, afirmando que o custo será repassado diretamente ao trabalhador. Se aprovada, a taxa entra em vigor no próximo sino de lua cheia, afetando todos os armazéns do Distrito Norte.</p>
-
-    </article>
-</div>
-            <div class="column">
-                <h3>Economia Portuária</h3>
                 <article>
-                    <h2>Preço do Couro Estabiliza</h2>
-                    <p>A chegada da caravana de Aurethia trouxe excedente de couro curtido, reduzindo o preço unitário nas selarias centrais. Bom momento para reparos.</p>
+                    <h3>Gazeta Policial</h3>
+                    <h2>Fraude em Peso e Medida: Cais em Alvoroço</h2>
+                    <p>Guardas civis e inspetores da Câmara detiveram ao menos sete comerciantes do cais nesta madrugada. As bancas foram interditadas após investigação revelar um esquema sistemático de adulteração nas balanças utilizadas na pesagem de cargas e mercadorias importadas.</p>
+                    <p>Mais grave: um membro do próprio Sínodo foi identificado como participante do esquema e encontra-se sob custódia. Fontes da Guarda afirmam que os lucros ilícitos circulavam há meses sem que a fiscalização oficial agisse.</p>
+                    <div class="opinion-bar"><b>Nota do Editor</b> Quando o guardião da balança é quem a entorta, de que serve a balança?</div>
                 </article>
-                <article>
-                    <h3>Vida na Cidade</h3>
-                    <h2>Sons Estranhos nos Esgotos?</h2>
-                    <p>Moradores do Bairro Industrial reclamam de ruídos metálicos vindos das bueiras à noite. A prefeitura alega ser apenas vapor acumulado nas tubulações antigas.</p>
-                </article>
+
                 <article>
                     <h3>Clima</h3>
-                    <h2>Calor Recorde nas Docas</h2>
-                    <p>O mormaço de verão deve continuar. Médicos recomendam evitar o trabalho pesado sob o sol do meio-dia.</p>
+                    <h2>Ventos do Sul Anunciam Chuvas</h2>
+                    <p>Mestres do porto avisam: a frente de ar úmido vinda de Aurethia deve atingir o cais até o próximo entardecer. Recomenda-se cobrir as cargas a céu aberto.</p>
                 </article>
+
+            </div>
+
+            <!-- COLUNA CENTRAL -->
+            <div class="main-col">
+                <article>
+                    <h3>Justiça &amp; Poder — Manchete do Dia</h3>
+                    <h2 class="headline-lg headline-red">FUNCIONÁRIO DO SÍNODO PRESO EM FLAGRANTE — LETH VARIK INTERVÉM E SUSPENDE CUSTÓDIA</h2>
+                    
+                    <img src="jornal1.jpg" class="news-img" alt="Portões do Sínodo de Várion">
+
+                    <p><span class="dropcap">A</span> manhã desta quinta-feira reservou à cidade uma cena sem precedentes: guardas civis escoltavam sob voz de prisão Daven Ossel, funcionário de segundo escalão do Sínodo, acusado de furtar uma remessa de lacres oficiais do depósito da instituição. A multidão que se formava nas escadarias da Câmara testemunhou o que veio a seguir.</p>
+
+                    <p>Leth Varik, Alto Conselheiro do Sínodo, desceu pessoalmente à rua e, diante dos guardas, declarou em voz alta que a autoridade civil não possuía jurisdição sobre servidores do Sínodo em exercício de suas funções. Varik afirmou que Ossel "será julgado e punido segundo os ritos internos da instituição", e ordenou sua liberação imediata.</p>
+
+                    <p>O Capitão da Guarda, Aldric Menos, recuou após breve confronto verbal. Fontes próximas à Câmara afirmam que o capitão enviou protesto formal ao Conselho Municipal ainda antes do meio-dia. O incidente reacende uma questão que muitos preferiam não formular em voz alta:</p>
+
+                    <p style="text-align:center; font-family:'Cinzel'; font-size:1.1rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 10px; margin: 15px 0;"><em>Até que ponto a autoridade do Sínodo pode ser questionada — e por quem?</em></p>
+
+                    <p>O Sínodo não possui estatuto militar nem tratado formal com a Coroa que lhe conceda imunidade sobre seus membros em matéria criminal ordinária. Juristas consultados por este Diário divergem sobre a legalidade do ato de Varik. Há quem sustente que a intervenção configura obstrução à justiça; outros argumentam que a tradição consuetudinária confere ao Sínodo prerrogativas não escritas, respeitadas por décadas.</p>
+
+                    <p>O que é certo: Daven Ossel dorme esta noite na sede do Sínodo, e não em uma cela da Guarda Civil. E a cidade observa.</p>
+                </article>
+            </div>
+
+            <!-- COLUNA DIREITA -->
+            <div class="column">
+
+                <article>
+                    <h3>Vida na Cidade</h3>
+                    <h2>Bardo Desconhecido Paralisa a Praça do Grão</h2>
+                    <p>No início da tarde de ontem, um bardo de nome não revelado tomou posição no centro da Praça do Grão e começou a tocar sem aviso nem anúncio. Dentro de minutos, dezenas de transeuntes pararam. Em meia hora, a praça estava tomada.</p>
+                    <p>O repertório misturava baladas antigas do porto com composições que ninguém soube identificar — letras que falavam de segredos, de dívidas e de "aqueles que pesam sem que ninguém os veja". Após três canções, o músico desapareceu na multidão antes que qualquer comerciante pensasse em passar o chapéu.</p>
+                    <div class="opinion-bar"><b>Rumor das Ruas</b> Alguns juram que uma das canções descrevia, com detalhes precisos, o esquema de adulteração de balanças do cais — dias antes de a Guarda fazer as prisões.</div>
+                </article>
+
+                <hr class="divider">
+
+                <article>
+                    <h3>Economia Portuária</h3>
+                    <h2>Interdição no Cais Paralisa Importações</h2>
+                    <p>Com sete bancas interditadas e dois armazéns lacrados pela Câmara, o fluxo de descarga de mercadorias foi reduzido à metade. Comerciantes honestos reclamam do prejuízo colateral. A previsão é de normalização em três dias, caso as perícias se concluam.</p>
+                </article>
+
+                <hr class="divider">
+
+                <article>
+                    <h3>Aviso da Prefeitura</h3>
+                    <h2>Inspeção de Pesos Obrigatória a Partir do Próximo Sino</h2>
+                    <p>Diante dos eventos do cais, a Câmara decretou inspeção compulsória em todas as balanças cadastradas do mercado central. Vendedores que não se apresentarem ao posto de aferição serão multados em 1 moeda de prata.</p>
+                </article>
+
             </div>
         </div>
 
+        <!-- SEÇÃO INFERIOR -->
         <div class="extra-section">
             
             <div class="editorial-col">
                 <h2 style="margin-bottom: 20px;">Correio do Leitor</h2>
                 
                 <div class="mail-box">
-                    <p><b>De: Um Ferreiro Honesto</b></p>
-                    <p>"Editor, por que o carvão da Liga Mercante está vindo com tanta pedra? Estamos perdendo horas de forja para limpar o material!"</p>
+                    <p><b>De: Um Comerciante do Cais (nome omitido a pedido)</b></p>
+                    <p>"Editor, trabalhei ao lado desses homens por anos. As balanças estavam erradas — todo mundo sabia. Ninguém falava porque o membro do Sínodo que frequentava o cais olhava para o outro lado. Agora me dizem que ele foi preso. Eu acredito quando vejo o julgamento."</p>
                     <div class="editorial-reply">
-                        Apuramos que o carvão está sendo misturado nos depósitos para aumentar o volume. O inspetor de pesos e medidas parece estar recebendo 'incentivos' para não ver o problema.
+                        A desconfiança deste leitor é a mesma de muitos. Um membro do Sínodo preso é notícia. Um membro do Sínodo condenado seria história. Aguardamos.
                     </div>
                 </div>
 
                 <div class="mail-box">
-                    <p><b>De: Dona Gertrudes</b></p>
-                    <p>"As carroças de entrega estão correndo demais na Rua dos Pomares. Quase atropelaram meu neto ontem!"</p>
+                    <p><b>De: Mãe Preocupada, Beco do Fundidor</b></p>
+                    <p>"Meu filho sumiu e as autoridades me disseram para 'aguardar'. Aguardar o quê? Já se passaram dois dias. Alguém o viu? Alguém se importa?"</p>
                     <div class="editorial-reply">
-                        A pressa dos entregadores é reflexo das multas aplicadas pela Liga por atrasos. O lucro vale mais que a segurança de nossas crianças, ao que parece.
+                        Este Diário publica o apelo da família Brael nesta edição. Que qualquer leitor com informações não hesite. Uma criança não é assunto de burocracia.
+                    </div>
+                </div>
+
+                <div class="mail-box">
+                    <p><b>De: Ser Kael Dorn, Advogado Público</b></p>
+                    <p>"O ato de Leth Varik não tem amparo em lei escrita que eu conheça. Se não for contestado formalmente, torna-se precedente. E precedentes constroem prisões invisíveis."</p>
+                    <div class="editorial-reply">
+                        Publicamos na íntegra. O Conselho Municipal foi procurado para comentar — até o fechamento desta edição, silêncio.
                     </div>
                 </div>
             </div>
@@ -231,24 +315,37 @@
                 <h2 style="margin-bottom: 20px;">Guia de Várion</h2>
                 
                 <article>
-                    <h3>Teatro & Lazer</h3>
-                    <p><b>Peça: "A Filha do Comodoro"</b></p>
-                    <p>Uma comédia de costumes que ironiza a elite local. Estreia sábado no Teatro das Máscaras. 1 moeda de prata.</p>
+                    <h3>Teatro &amp; Lazer</h3>
+                    <p><b>Peça: "A Mão que Não Aparece"</b></p>
+                    <p>Nova montagem do Grupo das Sete Lanternas explora os bastidores do poder mercantil em Várion. Apresentações na sexta e no sábado, no Teatro das Máscaras. 1 moeda de prata. Espera-se casa cheia dado o momento político.</p>
                 </article>
+
+                <hr class="divider">
+
+                <article>
+                    <h3>Música — Evento Inusitado</h3>
+                    <p><b>O Bardo da Praça do Grão</b></p>
+                    <p>Após a apresentação surpresa de ontem (veja coluna ao lado), moradores organizam um vigília musical espontânea na praça esta noite, esperando que o músico misterioso retorne. Nenhuma organização oficial, nenhuma cobrança. Apenas curiosidade — e talvez esperança de ouvir mais uma vez o que ele sabe.</p>
+                </article>
+
+                <hr class="divider">
 
                 <article>
                     <h3>Tabernas</h3>
-                    <p><b>O Rato Cego</b></p>
-                    <p>Hoje: Noite do Ensopado de Peixe. Cerveja preta em promoção para quem trouxer sua própria caneca de madeira.</p>
+                    <p><b>A Âncora &amp; o Trigo</b></p>
+                    <p>Noite do Ensopado de Caranguejo com pão de brasa. Cantora local às campanadas da nona hora. Para quem precisa esquecer as notícias do dia — ou ruminar sobre elas com uma caneca na mão.</p>
                 </article>
+
+                <hr class="divider">
 
                 <article>
                     <h3>Serviços</h3>
-                    <p><b>Alfaiataria Vael</b></p>
-                    <p>Ajustes rápidos em túnicas e capas para a temporada de festas. Localizada atrás da Catedral de Lux.</p>
+                    <p><b>Escriba Pública — Rua do Pergaminho, 7</b></p>
+                    <p>Cartas, petições e contratos redigidos com discrição. Aberta até a sexta campanada. Atende também analfabetos e estrangeiros.</p>
                 </article>
             </div>
         </div>
+
     </div>
 
 </body>
